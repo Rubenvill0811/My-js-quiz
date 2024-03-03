@@ -11,13 +11,17 @@ highscore screen
 enter your initials screen with highschool
 
 */
-let time = 5;
+let time = 60;
 var timerStart = document.querySelector("#button-start");
-//mayube store a list of possible quetsions
 //maybe have a tracker for what question we are on
 
+window.onload = () => {
+    document.getElementById("quiz-end").style.display = "none";
+     document.getElementById("questionScreen").style.display = "none";
+}
+
 function timer() {
-    //figure out a way to remove the start button or hide it
+    
     const interval = setInterval(function(){
         document.getElementById("timer").innerHTML = time;
     time  = time -1
@@ -29,7 +33,7 @@ function timer() {
 
 const questions = [
     {
-        question: "What is a unique feature of a Lion?",
+        question1: "What is a unique feature of a Lion?",
         a: "its tongue",
         b: "its trunk",
         c: "its hind legs",
@@ -37,7 +41,7 @@ const questions = [
         correctAnswer: "d"
     },
     {
-        question: "What is the Lion's native continent?",
+        question2: "What is the Lion's native continent?",
         a: "North America",
         b: "South America",
         c: "Africa",
@@ -45,7 +49,7 @@ const questions = [
         correctAnswer: "c"
     },
     {
-        question: "What is a Lion's top speed?",
+        question3: "What is a Lion's top speed?",
         a: "50mph",
         b: "25mph",
         c: "30mph",
@@ -53,7 +57,7 @@ const questions = [
         correctAnswer: "a"
     },
     {
-        question: "What is a Lion's favorite pastime?",
+        question4: "What is a Lion's favorite pastime?",
         a: "trash talking zebras",
         b: "racing with other Lions",
         c: "flirting with a lioness",
@@ -62,20 +66,50 @@ const questions = [
     }
 ];
 
+const questionElement = document.querySelector('#questionScreen .question-container h2#question');
 
-const writeQuestion=()=>{
-    console.log("I can do this")
+const firstQuestion=()=>{
 
+    document.getElementById("questionScreen").style.display = "block";
+    
+    const questionElement = document.querySelector('#questionScreen .question-container h2#question');
+    const a1Element = document.querySelector('#a1');
+    const a2Element = document.querySelector('#a2');
+    const a3Element = document.querySelector('#a3');
+    const a4Element = document.querySelector('#a4');
+
+    questionElement.textContent = questions[0].question1;
+    a1Element.textContent = questions[0].a;
+    a2Element.textContent = questions[0].b;
+    a3Element.textContent = questions[0].c;
+    a4Element.textContent = questions[0].d;
+
+a1Element.addEventListener("click", console.log("hello"));
+    
+    
+    
     ///set the text on some part of the page...maybve makes an ul or questions and options that are buttons
     //maybe have a next question button
 }
+
+
+
+function startQuiz() {
+     document.getElementById("quiz-start").style.display = "none";
+     document.getElementById("quiz-end").style.display = "none";
+     document.getElementById("button-start").style.display = "none";
+     firstQuestion()    
+}
+
+
 const nextQuestion=()=>{
 
     writeQuestion(somevar)//where can we pass some var here that knows what question we are on
     //maybe qrite question needs to have a condition for if we passed nothing to it??
 }
 timerStart.addEventListener("click", timer); 
-timerStart.addEventListener("click", writeQuestion);
+timerStart.addEventListener("click", startQuiz);
+
 
 //maybe listen on the page for someone clicking next quetsion
 
