@@ -84,7 +84,6 @@ const firstQuestion=()=>{
     a3Element.textContent = questions[0].c;
     a4Element.textContent = questions[0].d;
 
-
     
     
     
