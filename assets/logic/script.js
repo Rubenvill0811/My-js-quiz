@@ -17,7 +17,7 @@ var timerStart = document.querySelector("#button-start");
 
 window.onload = () => {
     document.getElementById("quiz-end").style.display = "none";
-     document.getElementById("questionScreen").style.display = "none";
+     document.getElementById("quesiton-screen").style.display = "none";
 }
 
 function timer() {
@@ -70,9 +70,9 @@ const questionElement = document.querySelector('#questionScreen .question-contai
 
 const firstQuestion=()=>{
 
-    document.getElementById("questionScreen").style.display = "block";
+    document.getElementById("quesiton-screen").style.display = "block";
     
-    const questionElement = document.querySelector('#questionScreen .question-container h2#question');
+    const questionElement = document.querySelector('#quesiton-screen .question-container h2#question');
     const a1Element = document.querySelector('#a1');
     const a2Element = document.querySelector('#a2');
     const a3Element = document.querySelector('#a3');
@@ -84,7 +84,7 @@ const firstQuestion=()=>{
     a3Element.textContent = questions[0].c;
     a4Element.textContent = questions[0].d;
 
-a1Element.addEventListener("click", console.log("hello"));
+
     
     
     
@@ -112,4 +112,3 @@ timerStart.addEventListener("click", startQuiz);
 
 
 //maybe listen on the page for someone clicking next quetsion
-
